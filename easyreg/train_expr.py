@@ -182,7 +182,7 @@ def train_model(opt,model, dataloaders,writer):
                     save_model(model,check_point_path,epoch,global_step,'epoch_'+str(epoch),False,best_score)
 
 
-            if phase == 'debug':
+            if phase == 'debug' and dataloaders['data_size']['debug'] != 0:
                 epoch_debug_score = running_debug_score / min(max_batch_num_per_epoch['debug'], dataloaders['data_size']['debug'])
                 print('{} epoch_debug_score: {:.4f}'.format(epoch, epoch_debug_score))
 
